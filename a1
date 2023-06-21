@@ -1,0 +1,31 @@
+# 安裝相關套件
+!pip install pandas
+
+# 匯入必要的套件
+import pandas as pd
+
+# 讀取資料
+data_url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
+data = pd.read_csv(data_url)
+
+# 查看資料概要
+print("資料概要：")
+print(data.head())
+
+# 描述性統計
+print("描述性統計：")
+print(data.describe())
+
+# 處理缺失值
+print("缺失值處理：")
+print(data.isnull().sum())
+
+# 資料篩選
+filtered_data = data[data["Age"] > 30]
+print("年齡大於30的資料：")
+print(filtered_data.head())
+
+# 資料分組
+grouped_data = data.groupby("Sex")["Survived"].mean()
+print("按性別分組的生存率：")
+print(grouped_data)
